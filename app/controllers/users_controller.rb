@@ -18,3 +18,5 @@ class UsersController < ApplicationController
     end
     
 end
+
+#THis is a comment
