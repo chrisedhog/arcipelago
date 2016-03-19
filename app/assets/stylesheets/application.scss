@@ -1,0 +1,33 @@
+@import "bootstrap";
+@import "my_variables";
+
+.bg-inverse {
+    background-color: $brand-color;
+}
+
+.btn-primary {
+    background-color: $brand-color;
+    border-color: $brand-color;
+}
+
+body {
+    background:url('http://thedevelopmentadvisor.com/tda/wp-content/uploads/2012/12/Mergui-Archipelago-Myanmar.jpg') no-repeat center center;
+
+	/* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+
+	/* The Magic */
+	background-size:cover;
+}
+
+.bg-container {
+    background-color: white;
+    vertical-align: text-bottom;
+    min-height:50vh;
+    padding: 0 50px 0 50px;
+}
+
+.nav-link {
+    font-size: 0.9em !important;
+    margin: 5px 0 0 0;
+}

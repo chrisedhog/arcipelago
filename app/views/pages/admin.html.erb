@@ -1,0 +1,40 @@
+<div>
+<h1>Pages#admin</h1>
+<p>Find me in app/views/pages/admin.html.erb</p>
+    
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th colspan="2">Utilities</th>
+        </tr>
+        <% @users.each do |user| %>
+<!--        make each a link-->
+        <tr>
+            <td><%= user.profile.first_name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.profile.phone %></td>
+            <td><%= link_to 'Edit Profile', edit_profile_path(user.profile) %></td>
+            <td>
+                <% if user.has_role? :admin %>
+                    <%= link_to 'Remove Admin', '../remove_admin/' + user.id.to_s, class: 'btn btn-info' %>
+                       <% else %>
+                    <%= link_to 'Make Admin', '../make_admin/' + user.id.to_s, class: 'btn btn-info' %>
+                <% end %>
+            </td>
+            <td> 
+                <% if user == current_user %>
+                    <p>N/A</p>
+                <% else %>
+                    <%= link_to 'Delete User', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            </td>
+        </tr>
+
+        <% end %>
+    </table>
+    
+</div>
+

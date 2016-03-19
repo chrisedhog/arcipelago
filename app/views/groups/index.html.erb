@@ -1,0 +1,49 @@
+
+
+<h1>Listing Groups</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Group category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Logo</th>
+      <th>Banner</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.group_category %></td>
+        <td><%= group.name %></td>
+        <td><%= group.description %></td>
+        <td><%= group.logo %></td>
+        <td><%= group.banner %></td>
+        <td><%= group.owner_id %></td>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div>
+    <h4>Upload a csv file.</h4>
+    <%= form_tag import_groups_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+
+</div>
+
+    <%= link_to 'Delete all groups', delete_all_groups_path, method: :delete, data: { alert: "are you sure?" } %>
+
+
+<%= link_to 'New Group', new_group_path %>

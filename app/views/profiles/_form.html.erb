@@ -1,0 +1,32 @@
+<%= simple_form_for(@profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+   <div class="row">
+   <div class="col-md-6">
+       <%= f.input :first_name, placeholder: 'First Name' %>
+    </div>
+    <div class="col-md-6">
+    <%= f.input :last_name %>
+    </div>
+    </div>
+    <label class="file">
+        <%= f.file_field :profile_pic %>
+        <span class="file-custom"></span>
+    </label>
+    <%= f.input :bio %>
+      <%= f.input :dob, as: :date, start_year: Date.today.year - 90,
+end_year: Date.today.year - 12, order: [:day, :month, :year], label: 'Date of birth' %>
+    <%= f.input :street %>
+    <%= f.input :suburb %>
+    <%= f.input :state %>
+    <%= f.input :city %>
+      <%= f.input :country, priority: ['Australia'] %>
+      <%= f.input :gender, as: :radio_buttons, collection: ['Male', 'Female', 'Rather not say'] %>
+    <%= f.input :phone %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

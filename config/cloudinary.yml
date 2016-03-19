@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dmtnjt00p
+  api_key: '431824955931962'
+  api_secret: F20bNQwECa88NtD9dZGR0OPxtrY
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dmtnjt00p
+  api_key: '431824955931962'
+  api_secret: F20bNQwECa88NtD9dZGR0OPxtrY
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dmtnjt00p
+  api_key: '431824955931962'
+  api_secret: F20bNQwECa88NtD9dZGR0OPxtrY
+  enhance_image_tag: true
+  static_image_support: false
