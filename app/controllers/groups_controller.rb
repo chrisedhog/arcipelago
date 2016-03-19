@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
         Group.all.each do |group|
             group.delete
         end
+        redirect_to :back, notice: "Deleted everything! You FOOL!"
     end
         
   # GET /groups/1
