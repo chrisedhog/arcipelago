@@ -27,7 +27,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @group.owner_id %>
+    <%= @owner_profile.first_name %> <%= @owner_profile.last_name %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

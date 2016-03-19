@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+    skip_before_action :authenticate_user!, only: :index
+    
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
@@ -22,6 +24,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+      @owner_profile = User.find(@group.owner_id).profile
   end
 
   # GET /groups/new
@@ -36,12 +39,15 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
+    
     @group = Group.new(group_params)
+      @group.owner_id = current_user.id
+      @group.users << current_user
 
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
+          format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }
         format.json { render json: @group.errors, status: :unprocessable_entity }
