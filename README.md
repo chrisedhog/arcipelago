@@ -3,3 +3,4 @@
 
 Archipelago is a community app that serves to teach me Ruby on Rails. You can sign up, create goups, join groups and post messages & photos.
 
+This is an explaination of what this app does.
