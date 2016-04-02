@@ -11,7 +11,12 @@ class Group < ActiveRecord::Base
     has_many :photos
     has_many :posts
     
+    extend FriendlyId
+    friendly_id :name, use: :slugged
+    
+    
     mount_uploader :logo, GroupPicUploader
+    mount_uploader :banner, GroupPicUploader
     
        def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|

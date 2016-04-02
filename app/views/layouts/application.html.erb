@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Archipelago</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,11 +9,18 @@
 </head>
 <body>
 
-<div class="jumbotron jumbotron-fluid"><%= render 'layouts/navbar' %></div>
+<% if content_for? :group_banner %>
+    <div class="jumbotron jumbotron-fluid" style="background: url(<%= yield(:group_banner) %>) no-repeat top center; height: 280px; background-size: cover; overflow: hidden; padding: 0;">
+    <%= render 'layouts/navbar' %></div>
+    <% else %>
+        <div class="jumbotron jumbotron-fluid"><%= render 'layouts/navbar' %></div>
+    <% end %>
 <div class="container bg-container has-footer" style="">
-        <%= yield %>
+    
+                <%= yield %>
 </div>
 
 <%= render 'layouts/footer' %>
+
 </body>
 </html>
