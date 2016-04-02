@@ -1,12 +1,23 @@
 class GroupsController < ApplicationController
-    skip_before_action :authenticate_user!, only: :index
+    skip_before_action :authenticate_user!
     
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+      @groups = Group.all
+      @users = User.all
+          if params[:search]
+              @groups = Group.search(params[:search]).order(name: :asc)
+              @pgheader = 'Search Results'
+          else
+#              @groups = Group.all.order(name: :asc)
+              
+#              by adding limit we only produce 5 results, and order random will choose the results at random.
+              @groups = Group.limit(3).order("RANDOM()")
+              @pgheader = 'How about joining...'
+      end
   end
 
     def import
@@ -78,7 +89,6 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
-    
     
 
   private

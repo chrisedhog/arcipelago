@@ -11,6 +11,8 @@ class Group < ActiveRecord::Base
     has_many :photos
     has_many :posts
     
+    mount_uploader :logo, GroupPicUploader
+    
        def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
             
@@ -24,6 +26,9 @@ class Group < ActiveRecord::Base
             end
         end
     end
-
+    
+    def self.search(search)
+          where("name LIKE ?", "%#{search}%") 
+    end
     
 end

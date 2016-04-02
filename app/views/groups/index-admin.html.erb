@@ -1,0 +1,60 @@
+
+
+<div class="search-box col-lg-12">
+    <%= form_tag(groups_path, :method => "get", id: "search-form", class: "col-sx-12" ) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Find a group", id: "search-field" %>
+    <%= submit_tag ">>", id: "search-btn" %>
+<% end %>
+</div>
+
+<h1>Groups</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Group category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Logo</th>
+      <th>Banner</th>
+      <th>Owner</th>
+      <th colspan="3">Other</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.group_category.name %></td>
+        <td><%= group.name %></td>
+        <td><%= group.description %></td>
+        <td><%= group.logo %></td>
+        <td><%= group.banner %></td>
+        <td><%= @users.find(group.owner_id).profile.full_name %></td>
+          <% if (user_signed_in?) && (current_user.has_role? :admin) %>
+            <td><%= link_to 'Show', group %></td>
+            <td><%= link_to 'Edit', edit_group_path(group) %></td>
+            <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<div>
+    <h4>Upload a csv file.</h4>
+    <%= form_tag import_groups_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+
+</div>
+
+    <%= link_to 'Delete all groups', delete_all_groups_path, method: :delete, data: { alert: "are you sure?" } %>
+
+
+<%= link_to 'New Group', new_group_path %>

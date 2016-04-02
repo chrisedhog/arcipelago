@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enquiries
 get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   get 'about', to: 'pages#about'
@@ -7,7 +8,7 @@ get 'admin', to: 'pages#admin'
   resources :photos
   resources :posts
   resources :events
-    resources :groups do
+  resources :groups do
         collection { post :import }
     end
  delete 'delete_all_groups', to: 'groups#delete_all'
@@ -20,7 +21,7 @@ get 'admin', to: 'pages#admin'
 #    for making someone an admin
   get 'make_admin/:id', to: 'users#make_admin'
     get 'remove_admin/:id', to: 'users#remove_admin'
-    
+        
 #    Must appear BELOW the devise_for users code
     resources :users, only: :destroy
 
@@ -28,7 +29,7 @@ get 'admin', to: 'pages#admin'
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    root 'home#index'
+    root 'groups#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

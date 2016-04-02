@@ -1,5 +1,55 @@
 @import "bootstrap";
 @import "my_variables";
+@import "group-card";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+
+html {
+    font-family: 'Oxygen', Arial, sans-serif;
+    line-height: 1.2em;
+}
+
+.navbar {
+    -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+//Defining Text
+
+h1 {
+    font-family: 'Oxygen', Arial, sans-serif;
+    font-size: 18pt;
+    font-weight: 100;
+}
+
+h2 {
+    font-size: 13pt;
+    font-weight: 200;
+}
+
+p {
+    font-size: 11pt !important;
+    font-weight: 200;
+}
+
+a {
+    font-size: 11pt;
+    font-weight: 400;
+    color: $brand-color;
+}
+
+a:hover {
+    color: $brand-color;
+}
+
+//Defining Buttons
+
+.btn-secondary {
+    border: 1px solid $light-grey;
+}
+
 
 .bg-inverse {
     background-color: $brand-color;
@@ -10,24 +60,103 @@
     border-color: $brand-color;
 }
 
-body {
-    background:url('http://thedevelopmentadvisor.com/tda/wp-content/uploads/2012/12/Mergui-Archipelago-Myanmar.jpg') no-repeat center center;
 
-	/* Ensure the html element always takes up the full height of the browser window */
-	min-height:100%;
 
-	/* The Magic */
-	background-size:cover;
+.jumbotron {
+    background: image-url("home-banner.jpg") no-repeat top center;
+    height: 280px;
+    background-size: cover;
+    overflow: hidden;
+    padding: 0;
+
 }
+
+.jumbotron-fluid {
+    margin-bottom: 40px;
+}
+
+.has-footer {
+    padding-bottom: 50px;
+}
+//@media (max-width:499px)
+//{ body{
+//    
+//    background: image-url("home-banner.jpg") no-repeat top center;
+//    max-width: 100%;
+//	/* The Magic */
+//	background-size:auto;
+//    
+//    }
+//}
 
 .bg-container {
     background-color: white;
-    vertical-align: text-bottom;
-    min-height:50vh;
-    padding: 0 50px 0 50px;
+    min-height: 75vh;
 }
 
-.nav-link {
+.header-nav .nav-link {
     font-size: 0.9em !important;
     margin: 5px 0 0 0;
+}
+
+//Search box
+
+.search-box {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 30px;
+    display: block !important;
+}
+
+#search-field {
+    padding: 7px;
+    border: solid 1px #E4E4E4;
+    background-color: #fff;
+    border-radius: 2px;
+    width: 90%;
+}
+
+#search-field:focus {
+    outline: inherit;
+    border: solid 1px #616862; 
+}
+
+#search-btn {
+    padding: 7px 9px 8px 9px;
+    background-color: black;
+    color: white;
+    border: none;
+    display: block;
+    z-index: 9999 !important;
+    margin: 0;
+    width: 10%;
+}
+
+.aletr-muted {
+    border: 1px solid $light-grey;
+    background-color: $bg-grey;
+    text-align: center;
+    
+    -webkit-border-radius: 5px !important;
+     -moz-border-radius: 5px !important;
+          border-radius: 5px !important;
+    padding: 50px 0 35px 0;
+    display: inline-block;
+    height: auto;
+    margin: 15px 0 15px 0;
+}
+
+.my-footer {
+    background-color: white;
+    padding: 0;
+}
+
+.footer-border {
+    border-top: 1px solid $bg-grey;
+    padding: 5px 0 5px 0;
+}
+
+.title-btn {
+    padding-right: 0 !important;
 }

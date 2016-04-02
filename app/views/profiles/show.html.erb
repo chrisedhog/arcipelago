@@ -1,35 +1,45 @@
 <p id="notice"><%= notice %></p>
      <div class="row">
         <div class="col-md-4">
-         <div class="card">
+             <div class="card">
 
-                <img class="card-img-top" src="<%= @profile.profile_pic_url %>" alt="Card image cap" width="100%" height="auto">
-              <div class="card-block">
-                  <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
-                  <p class="card-text"><%= @profile.bio %></p>
+                    <img class="card-img-top" src="<%= @profile.profile_pic_url %>" alt="Card image cap" width="100%" height="auto">
+                  <div class="card-block">
+                      <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
+                      <p class="card-text"><%= @profile.bio %></p>
 
-              </div>
-              <ul class="list-group list-group-flush">
+                  </div>
+                  <ul class="list-group list-group-flush">
 
-                  <li class="list-group-item"><strong>Date of birth</strong> <%= @profile.dob.strftime('%d %B %y') %></li>
-<!--                 Add additional rows only if present-->
-                  <% unless @profile.street.blank? && @profile.suburb.blank? && @profile.state.blank? %>
-                    <li class="list-group-item"><strong>Address </strong><%= @profile.street %> <%= @profile.suburb %> <%= @profile.state %></li>
-                 <% end %>
-                 <% unless @profile.country.blank? %>
-                    <li class="list-group-item"><strong>Country </strong><%= ISO3166::Country[@profile.country] %></li>
-                 <% end %>
-                  <% unless @profile.gender.blank? %>
-                    <li class="list-group-item"><strong>Gender </strong><%= @profile.gender %></li>
-                 <% end %>
-                  <% unless @profile.phone.blank? %>
-                    <li class="list-group-item"><strong>Phone </strong><%= @profile.phone %></li>
-                 <% end %>
-              </ul>
-              <div class="card-block">
-                  <%= link_to 'Back Home', root_path, class: 'btn btn-primary' %>
-                  <%=  link_to 'Edit Profile', edit_profile_path(@profile), class: 'btn btn-secondary'%>
-              </div>
-         </div>
+                      <li class="list-group-item"><strong>Date of birth</strong> <%= @profile.dob.strftime('%d %B %y') %></li>
+    <!--                 Add additional rows only if present-->
+                      <% unless @profile.street.blank? && @profile.suburb.blank? && @profile.state.blank? %>
+                        <li class="list-group-item"><strong>Address </strong><%= @profile.street %> <%= @profile.suburb %> <%= @profile.state %></li>
+                     <% end %>
+                     <% unless @profile.country.blank? %>
+                        <li class="list-group-item"><strong>Country </strong><%= ISO3166::Country[@profile.country] %></li>
+                     <% end %>
+                      <% unless @profile.gender.blank? %>
+                        <li class="list-group-item"><strong>Gender </strong><%= @profile.gender %></li>
+                     <% end %>
+                      <% unless @profile.phone.blank? %>
+                        <li class="list-group-item"><strong>Phone </strong><%= @profile.phone %></li>
+                     <% end %>
+                  </ul>
+                  <div class="card-block">
+                      <%= link_to 'Back Home', root_path, class: 'btn btn-primary' %>
+                      <%=  link_to 'Edit Profile', edit_profile_path(@profile), class: 'btn btn-secondary'%>
+                  </div>
+                  <div>
+                        <h2 style="padding-left: 5px;">Your Groups</h2>
+                         <ul>
+                             <% @profile.user.groups.each do |group| %>
+                             <li><%= group.name %></li>
+                            <% end %>
+                         </ul>
+                          
+                        
+                  </div>
+             </div>
          </div>
      </div>

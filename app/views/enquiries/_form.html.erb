@@ -1,0 +1,13 @@
+<%= simple_form_for(@enquiry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+      <%= f.input :enquiry_type, collection: ['General', 'Complaint', 'Compliment', 'Error', 'Abuse']  %>
+      <%= f.input :email, placeholder: 'your@email.com' %>
+      <%= f.input :message, placeholder: 'be nice.' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

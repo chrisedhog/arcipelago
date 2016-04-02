@@ -1,28 +1,11 @@
-
-      <nav class="navbar container navbar-dark bg-inverse header-nav">
-      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-        &#9776;
-      </button>
-      <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-          <a class="navbar-brand" href="/"><img src="<%= asset_path 'archipelago-logo_w.png' %>" alt="" width="150"></a>
+  
+     <div class="container ">
+      <nav class="navbar navbar-fixed-bottom my-footer">
+      <div class="container footer-border">
+      <div>
+          <div class="navbar-brand" ></div>
         <ul class="nav navbar-nav">
-          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-              <a class="nav-link" href="/">Home</a>
-          </li>
-
-          <li class="nav-item <%= 'active' if current_page?(about_path) %>">
-            <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(contact_path) %>">
-            <a class="nav-link" href="/contact">Contact</a>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(groups_path) %>">
-              <%= link_to 'Groups', groups_path, class: 'nav-link' %>
-          </li>
-
-
-
-
+         <li class="nav-item nav-link">Your Groups</li>
           <% if user_signed_in? %>
            <% if current_user.has_role? :admin %>
             <li class="nav-item <%= 'active' if current_page?(admin_path) %>"><%= link_to 'Admin', admin_path, class: 'nav-link' %></li>
@@ -51,10 +34,8 @@
             <% end %>
 
         </ul>
+      </div>
           </div>
     </nav>
-    <div class="container">
-       <p class="notice" ><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        </div>
+</div>
 

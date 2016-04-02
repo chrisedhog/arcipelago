@@ -58,7 +58,7 @@ class GroupCategoriesController < ApplicationController
   def destroy
     @group_category.destroy
     respond_to do |format|
-      format.html { redirect_to group_categories_url, notice: 'Group category was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Group category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -13,7 +13,7 @@
         <% @users.each do |user| %>
 <!--        make each a link-->
         <tr>
-            <td><%= user.profile.first_name %></td>
+            <td><%= user.profile.full_name %></td>
             <td><%= user.email %></td>
             <td><%= user.profile.phone %></td>
             <td><%= link_to 'Edit Profile', edit_profile_path(user.profile) %></td>

@@ -17,7 +17,7 @@
 
 <p>
   <strong>Logo:</strong>
-  <%= @group.logo %>
+    <%= cl_image_tag @group.logo %>
 </p>
 
 <p>
@@ -27,7 +27,15 @@
 
 <p>
   <strong>Owner:</strong>
-    <%= @owner_profile.first_name %> <%= @owner_profile.last_name %>
+    <%= @owner_profile.full_name %>
+</p>
+
+<!--trying to show the users in the group-->
+<p>
+<strong>Members:</strong>
+<% @group.users.each do |user| %>
+    <%= user.profile.full_name %>
+<% end %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

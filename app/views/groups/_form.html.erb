@@ -1,11 +1,24 @@
 <%= simple_form_for(@group) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="form-inputs">
     <%= f.association :group_category %>
-    <%= f.input :name %>
+     
+<!--    pre-populate if parameters are passed thorugh-->
+      <% if params[:name] %>
+          <%= f.input :name, :input_html => { :value => params[:name].titlecase } %>
+      <% else %>
+      <%= f.input :name %>
+     <% end %>
+      
     <%= f.input :description %>
-    <%= f.input :logo %>
+    
+    <label for="logo">Upload a group logo</label><br>
+    <label class="file">
+        <%= f.file_field :logo %>
+        <span class="file-custom"></span>
+    </label>
+    
     <%= f.input :banner %>
   </div>
 

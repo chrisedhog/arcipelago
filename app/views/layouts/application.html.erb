@@ -7,13 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/navbar' %>
-<div class="container bg-container" style="margin-top: 50px;">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+<div class="jumbotron jumbotron-fluid"><%= render 'layouts/navbar' %></div>
+<div class="container bg-container has-footer" style="">
+        <%= yield %>
 </div>
 
+<%= render 'layouts/footer' %>
 </body>
 </html>
