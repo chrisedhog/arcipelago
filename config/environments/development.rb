@@ -45,9 +45,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :port           => 587,
     :address        => 'smtp.mailgun.org',
-    :user_name      => 'postmaster@sandbox9b4f7df3b5794696bf59d0e9079bdc98.mailgun.org',
-    :password       => 'af08d3b0bb2aa0fe1e250426ac8ff26a',
-    :domain         => 'sandbox9b4f7df3b5794696bf59d0e9079bdc98.mailgun.org',
+    :user_name      => 'postmaster@sandbox3ed8de9510c845c68bf0d867a8f25394.mailgun.org',
+    :password       => '821e5cba66f01f407c6060b68e992204',
+    :domain         => 'sandbox3ed8de9510c845c68bf0d867a8f25394.mailgun.org',
     :authentication => :plain
   }
   # Raises error for missing translations

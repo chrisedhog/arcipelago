@@ -54,7 +54,16 @@
     <div class="col-sm-12 col-lg-4">
         <h2>Newest Groups</h2>
         <hr>
-        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus neque nam, quos tempora nemo nostrum recusandae, veritatis dolores natus doloribus dolorem facere iure quam ad ut molestias dicta quaerat atque?</span><span>Accusantium corporis ipsum quaerat molestiae ea unde quisquam delectus eligendi aperiam quam nesciunt, voluptates, qui architecto facere sapiente. Consequatur sed ea aut numquam ratione quasi, quo molestias suscipit officiis illo?</span></p>
+        <p>
+            <% if params[:tag] %>
+                tagged with <%= params[:tag] %>
+            <% end %>
+        </p>
+        <p>
+            <% @tags.each do |tag| %>
+                <%= link_to tag, groups_path(tag: tag.name), class: 'label label-pill label-info' %>
+            <% end %>
+        </p>
     </div>
 
 

@@ -8,16 +8,19 @@ class GroupsController < ApplicationController
   def index
       @groups = Group.all
       @users = User.all
+      @tags = ActsAsTaggableOn::Tag.most_used
           if params[:search]
               @groups = Group.search(params[:search]).order(name: :asc)
               @pgheader = 'Search Results'
+          elsif params[:tag]
+              @groups = Group.tagged_with(params[:tag])
           else
-#              @groups = Group.all.order(name: :asc)
+#            @groups = Group.all.order(name: :asc)
               
-#              by adding limit we only produce 5 results, and order random will choose the results at random.
+#            by adding limit we only produce 5 results, and order random will choose the results at random.
               @groups = Group.limit(3).order("RANDOM()")
               @pgheader = 'How about joining...'
-      end
+          end
   end
 
     def import
@@ -99,6 +102,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:group_category_id, :name, :description, :logo, :banner, :owner_id)
+      params.require(:group).permit(:group_category_id, :name, :description, :logo, :banner, :owner_id, :tag_list)
     end
 end

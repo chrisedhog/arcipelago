@@ -24,7 +24,7 @@
         <%= f.file_field :banner %>
         <span class="file-custom"></span>
     </label>
-    
+      <%= f.input :tag_list, input_html: {value: @group.tag_list.to_s} %>
     
   </div>
 

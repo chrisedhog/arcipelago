@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :user %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.association :groups, as: :check_boxes %>
     <%= f.input :date %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
@@ -12,7 +12,7 @@
     <%= f.input :suburb %>
     <%= f.input :state %>
     <%= f.input :postcode %>
-    <%= f.input :country %>
+    <%= f.input :country, priority: ['Australia'] %>
   </div>
 
   <div class="form-actions">
