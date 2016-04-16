@@ -14,16 +14,18 @@
     <%= f.input :description %>
     
     <label for="logo">Upload a group logo</label><br>
-    <label class="">
+    
         <%= f.file_field :logo %>
         <span class="file-custom"></span>
-    </label><br>
+    <br>
     
-    <label for="banner">Upload a banner</label><br>
-    <label class="">
+    <label for="banner">Upload a banner</label>
+       
+    <br>
+        
         <%= f.file_field :banner %>
         <span class="file-custom"></span>
-    </label>
+     
       <%= f.input :tag_list, input_html: {value: @group.tag_list.to_s} %>
     
   </div>

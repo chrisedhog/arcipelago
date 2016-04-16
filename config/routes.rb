@@ -7,7 +7,12 @@ get 'admin', to: 'pages#admin'
   resources :profiles
   resources :photos
   resources :posts
-  resources :events
+    resources :events do
+        member do
+            get :like, :unlike, :rate
+        end
+    end
+    
   resources :groups do
         collection { post :import }
     end

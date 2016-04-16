@@ -9,8 +9,12 @@ class Event < ActiveRecord::Base
     geocoded_by :full_street_address
     after_validation :geocode
     
+    acts_as_votable
+
+    
     def full_street_address
         [street, suburb, state, postcode, country].compact.join(',') 
     end
     
 end
+

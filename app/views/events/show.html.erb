@@ -68,5 +68,23 @@
   <%= @event.country %>
 </p>
 
+<p>
+    <% if current_user.voted_for? @event %>
+        <%= link_to 'Unlike', unlike_event_path(@event), class: 'btn btn-warning' %>
+    <% else %>
+        <%= link_to 'Like', like_event_path(@event), class: 'btn btn-success' %>
+    <% end %>
+</p>
+<p>Likes: <%= @event.votes_for.size %></p>
+<p>
+    <% @stars.each do |star| %>
+        <%= link_to rate_event_path(@event, stars: star) do %>
+            <i class="fa fa-star-o"></i>
+        <% end %>
+    <% end %>
+</p>
+
+<p>Average Rating: <%= @event.weighted_score.round(1) / @event.votes_for.size %> / <%= @event.votes_for.size %> </p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

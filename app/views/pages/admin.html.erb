@@ -39,6 +39,13 @@
 <!--    <div class="col-lg-2 pull-right">--><div>
     <%= render 'group_categories/index' %>
 </div>
+<div>
+    <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+    
+    <%= line_chart @line_chart %>
+    
+    
+</div>
 </div>
 
 <!--Upload a photo and bannner for homework-->

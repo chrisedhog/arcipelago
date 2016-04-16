@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
     has_many :groups, through: :memberships
     has_many :events
     has_many :photos
+    
+    acts_as_voter
+    
 end
