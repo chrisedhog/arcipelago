@@ -1,17 +1,27 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :enquiries
 get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   get 'about', to: 'pages#about'
 
   resources :profiles
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+    
   resources :photos
   resources :posts
-    resources :events do
+  resources :events do
         member do
             get :like, :unlike, :rate
         end
+  end
+    
+    resources :messages do
+        member do
+            post :change_unread
+        end
     end
+    
     
   resources :groups do
         collection { post :import }
@@ -19,7 +29,6 @@ get 'admin', to: 'pages#admin'
  delete 'delete_all_groups', to: 'groups#delete_all'
         
   resources :group_categories
-  devise_for :users
     
   get 'home/index'
     

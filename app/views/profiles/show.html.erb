@@ -29,6 +29,7 @@
                   <div class="card-block">
                       <%= link_to 'Back Home', root_path, class: 'btn btn-primary' %>
                       <%=  link_to 'Edit Profile', edit_profile_path(@profile), class: 'btn btn-secondary'%>
+                      <%= link_to 'Message', new_message_path(receiver:@profile.user), class: 'btn btn-warning btn-sm' %>
                   </div>
                   <div>
                         <h2 style="padding-left: 5px;">Your Groups</h2>

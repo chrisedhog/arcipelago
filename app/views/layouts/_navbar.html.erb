@@ -21,9 +21,14 @@
           </li>
 
 
-
-
           <% if user_signed_in? %>
+          <li class="nav-item <%= 'active' if current_page?(messages_path) %>">
+               <a href="/messages" class="nav-link">Inbox
+                   <% unless (@mymsgs <= 0) %>
+                   <span class="label label-danger"><%= @mymsgs %></span>
+                   <% end %>
+                </a>
+          </li>
            <% if current_user.has_role? :admin %>
             <li class="nav-item <%= 'active' if current_page?(admin_path) %>"><%= link_to 'Admin', admin_path, class: 'nav-link' %></li>
             <% end %>

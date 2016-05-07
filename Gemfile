@@ -17,6 +17,7 @@ gem 'acts-as-taggable-on'
 gem 'acts_as_votable'
 gem 'chartkick'
 gem 'groupdate'
+gem 'omniauth-github'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
